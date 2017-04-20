@@ -8,9 +8,9 @@
 
 * [Example](#example)
 * [API](#api)
-  * [`encode(base64)`](#encode-base64-)
-  * [`decode(safe)`](#decode-safe-)
-  * [`trim(str)`](#trim-str-)
+  * [`encode(base64)`](#encodebase64)
+  * [`decode(safe)`](#decodesafe)
+  * [`trim(str)`](#trimstr)
 * [Installation](#installation)
 * [Tests](#tests)
 * [LICENSE](#license)
