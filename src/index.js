@@ -2,13 +2,24 @@
 * @module url-safe-base64
 * @license UNLICENSE
 * @example
-* import {encode, decode, trim} from 'url-safe-base64'
+* import {
+*   encode, decode, trim,
+*   isBase64, isUrlSafeBase64
+* } from 'url-safe-base64'
 * const safe = encode('A/B+C==')
 * // > 'A-B_C..'
 * trim(safe)
 * // > 'A-B_C'
 * const base64 = decode(safe)
 * // > 'A/B+C=='
+* isBase64(base64)
+* // > true
+* isBase64(safe)
+* // > false
+* isUrlSafeBase64(base64)
+* // > false
+* isUrlSafeBase64(safe)
+* // > true
 */
 
 const ENC = {
@@ -42,9 +53,23 @@ export const decode = (safe) => {
 
 /**
 * trim padding - `window.atob` might handle trimmed strings, e.g. in Chrome@57, Firefox@52
-* @param {String} str - base64 or url-safe-base64 string
+* @param {String} string - base64 or url-safe-base64 string
 * @return {String} string with padding chars removed
 */
-export const trim = (str) => {
-  return str.replace(/[.=]{1,2}$/, '')
+export const trim = (string) => {
+  return string.replace(/[.=]{1,2}$/, '')
 }
+
+/**
+* checks if `string` is base64 encoded
+* @param {String} string
+* @return {Boolean} true if base64 encoded
+*/
+export const isBase64 = (string) => /^[A-Za-z0-9+/]*[=]{0,2}$/.test(string)
+
+/**
+* checks if `string` is url-safe-base64 encoded
+* @param {String} string
+* @return {Boolean} true if url-safe-base64 encoded
+*/
+export const isUrlSafeBase64 = (string) => /^[A-Za-z0-9_-]*[.]{0,2}$/.test(string)
