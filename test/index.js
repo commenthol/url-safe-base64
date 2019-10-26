@@ -1,7 +1,7 @@
 /* global describe, it */
 
 import assert from 'assert'
-import {encode, decode, trim, isBase64, isUrlSafeBase64} from '..'
+import { encode, decode, trim, isBase64, isUrlSafeBase64 } from '..'
 
 const base64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 const urlSafeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.'
