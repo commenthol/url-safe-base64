@@ -11,6 +11,10 @@
   "bugs": {
     "url": "https://github.com/commenthol/url-safe-base64/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commenthol/url-safe-base64.git"
+  },
   "license": "Unlicense",
   "author": "commenthol@gmail.com",
   "main": "lib",
@@ -18,10 +22,6 @@
   "directories": {
     "lib": "lib",
     "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/commenthol/url-safe-base64.git"
   },
   "scripts": {
     "all": "npm run clean && npm run lint && npm run transpile && npm test",
