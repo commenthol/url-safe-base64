@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "declaration": true,
+    "declarationDir": "types",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "strict": true,
+    "target": "ES2021"
+  },
+  "include": [
+    "**/*.js"
+  ],
+  "exclude": [
+    "lib",
+    "bin",
+    "coverage",
+    "dist",
+    "docs",
+    "examples",
+    "node_modules",
+    "test",
+    "tmp"
+  ]
+}
