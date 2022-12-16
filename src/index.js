@@ -24,8 +24,7 @@
 
 const ENC = {
   '+': '-',
-  '/': '_',
-  '=': '.'
+  '/': '_'
 }
 const DEC = {
   '-': '+',
@@ -39,7 +38,7 @@ const DEC = {
  * @return {String} url-safe-base64 encoded
  */
 export const encode = (base64) => {
-  return base64.replace(/[+/=]/g, (m) => ENC[m])
+  return base64.replace(/[+/]/g, (m) => ENC[m])
 }
 
 /**
@@ -72,4 +71,4 @@ export const isBase64 = (string) => /^[A-Za-z0-9+/]*[=]{0,2}$/.test(string)
  * @param {String} string
  * @return {Boolean} true if url-safe-base64 encoded
  */
-export const isUrlSafeBase64 = (string) => /^[A-Za-z0-9_-]*[.]{0,2}$/.test(string)
+export const isUrlSafeBase64 = (string) => /^[A-Za-z0-9_-]*[.=]{0,2}$/.test(string)
