@@ -25,7 +25,7 @@ import {
   isBase64, isUrlSafeBase64
 } from 'url-safe-base64'
 const safe = encode('A/B+C==')
-// > 'A-B_C..'
+// > 'A-B_C=='
 trim(safe)
 // > 'A-B_C'
 const base64 = decode(safe)

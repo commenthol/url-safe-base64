@@ -4,7 +4,9 @@ import assert from 'assert'
 import { encode, decode, trim, isBase64, isUrlSafeBase64 } from '..'
 
 const base64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
-const urlSafeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.'
+const urlSafeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_='
+// non standard padding uses `.`
+const urlSafeCharsAlt = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.'
 
 describe('url-safe', function () {
   const b64 = [base64chars, base64chars, base64chars].join()
@@ -48,6 +50,10 @@ describe('url-safe', function () {
       const res = isUrlSafeBase64(urlSafeChars)
       assert.strictEqual(res, true)
     })
+    it('urlSafeCharsAlt', function () {
+      const res = isUrlSafeBase64(urlSafeCharsAlt)
+      assert.strictEqual(res, true)
+    })
     it('b64', function () {
       const res = isUrlSafeBase64(b64)
       assert.strictEqual(res, false)
@@ -63,18 +69,7 @@ describe('url-safe', function () {
       ['A', 'A'],
       ['A=', 'A'],
       ['A==', 'A'],
-      ['A===', 'A=']
-    ].forEach((test) => {
-      it(test[0], function () {
-        const res = trim(test[0])
-        assert.strictEqual(res, test[1])
-      })
-    })
-  })
-
-  describe('should trim padding from url-safe-base64', function () {
-    ;[
-      ['A', 'A'],
+      ['A===', 'A='],
       ['A.', 'A'],
       ['A..', 'A'],
       ['A...', 'A.']
