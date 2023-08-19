@@ -1,4 +1,0 @@
-require:
-  - "@babel/register"
-checkLeaks: true
-colors: true

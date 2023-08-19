@@ -8,7 +8,9 @@
     "moduleResolution": "node",
     "noImplicitAny": false,
     "strict": true,
-    "target": "ES2021"
+    "target": "ES2021",
+    "emitDeclarationOnly": true,
+    "noEmitOnError": true
   },
   "include": [
     "**/*.js"
